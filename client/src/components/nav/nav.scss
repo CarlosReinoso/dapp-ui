@@ -1,0 +1,25 @@
+.nav {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 16px 16px 0 16px;
+    // color: honeydew;
+    // background-image: linear-gradient(rgb(49 49 49 / 50%), rgb(255 255 255 / 50%)), url(../../assets/images/resLogo.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
+  &__logo {
+    width: 50px;
+  }
+  &__list {
+    display: flex;
+    gap: 8px;
+  }
+  &__list-item {
+      display: flex;
+      align-items: center;
+  }
+  &__list-item-icon {
+    width: 30px;
+  }
+}

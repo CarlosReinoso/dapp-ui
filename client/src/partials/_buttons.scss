@@ -1,0 +1,110 @@
+@use './variables' as *;
+@use './resets' as *;
+@use './breakpoints' as *;
+
+button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: remy(36);
+  background: $Indigo;
+  color: $White;
+  padding: 0 remy(15);
+  border-radius: remy(20);
+  font-style: normal;
+  font-weight: 600;
+  font-size: remy(13);
+  border: none;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.button-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: remy(36);
+
+  color: $White;
+  padding: 0 remy(15);
+  border-radius: remy(20);
+  font-style: normal;
+  font-weight: 600;
+  font-size: remy(13);
+  border: none;
+}
+
+button:hover {
+  background-color: $Graphite;
+}
+
+.button-secondary {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 remy(15);
+  height: remy(36);
+  color: $White;
+  border-radius: remy(20);
+  font-style: normal;
+  font-weight: 600;
+  font-size: remy(13);
+  background: $White;
+  border: remy(1) solid $Cloud;
+  color: $Slate;
+}
+
+.button-secondary:hover {
+  color: $Indigo;
+  border: remy(1) solid $Indigo;
+}
+
+.button-delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 remy(15);
+  height: remy(36);
+  background: $Red;
+  color: $White;
+  border-radius: remy(20);
+  font-style: normal;
+  font-weight: 600;
+  font-size: remy(13);
+  border: none;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.button-delete:hover {
+  background-color: $Graphite;
+}
+
+.input-form,
+textarea,
+option,
+select {
+  height: remy(38);
+  width: 100%;
+  border-radius: remy(20);
+  border: remy(1) solid $Cloud;
+  padding: 0 remy(24);
+  background-color: $White;
+  margin-bottom: remy(16);
+  @include tablet {
+    margin-bottom: remy(24);
+  }
+  @include desktop {
+    margin-bottom: remy(32);
+  }
+}
+
+
+textarea {
+  resize: none;
+  font-family: "Titillium Web", sans-serif;
+  padding: remy(8) remy(16);
+}
+

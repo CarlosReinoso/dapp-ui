@@ -1,0 +1,35 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Dapp UI",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlosReinoso/dapp-ui.git"
+  },
+  "keywords": [
+    "dapp",
+    "blockchain",
+    "cardano"
+  ],
+  "author": "Carlos Reinoso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarlosReinoso/dapp-ui/issues"
+  },
+  "homepage": "https://github.com/CarlosReinoso/dapp-ui#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "env": "0.0.2",
+    "express": "^4.17.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

@@ -1,0 +1,36 @@
+@use './resets' as *;
+@use './breakpoints' as *;
+
+//colours
+//Primary
+$Black: #13182c;
+$Indigo: #2e66e5;
+$White: #fff;
+
+//Sencondary
+$Slate: #5c667e;
+$Cloud: #bdc5d5;
+
+//Background
+$Graphite: #232940;
+$Light-Grey: #f7f8f9;
+
+//Supporting
+$Green: #158463;
+$Red: #c94515;
+
+@mixin main-component {
+  border-radius: remy(5);
+  margin: 0 remy(16) 0 remy(16);
+  position: relative;
+  bottom: remy(60);
+  background-color: $White;
+  padding-top: remy(36) remy(16) remy(32) remy(32);
+  @include tablet {
+    margin: 0 remy(32);
+    bottom: remy(98);
+  }
+  @include desktop {
+    margin: 0 remy(130);
+  }
+}
