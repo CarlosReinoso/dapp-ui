@@ -43,6 +43,8 @@ app.post("/swap", (req, res) => {
     swap_coin: req.body.swap_coin,
     base_input: req.body.base_input,
     swap_input: req.body.swap_input,
+    base_calc: req.body.base_calc,
+    swap_calc: req.body.swap_calc,
   })
     .save()
     .then((data) => {

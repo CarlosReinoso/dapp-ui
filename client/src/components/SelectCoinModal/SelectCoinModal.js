@@ -12,8 +12,6 @@ const SelectCoinModal = ({
   swapCoin,
   baseCoin,
 }) => {
-  console.log("baseCoin", baseCoin);
-  console.log("swap", swapCoin);
   const [search, setSearch] = useState("");
   const [filtered, setFiltererd] = useState(coinsList);
 
