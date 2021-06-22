@@ -1,23 +1,26 @@
 .nav {
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    padding: 16px 16px 0 16px;
-    // color: honeydew;
-    // background-image: linear-gradient(rgb(49 49 49 / 50%), rgb(255 255 255 / 50%)), url(../../assets/images/resLogo.png);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 0 16px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: contain;
   &__logo {
     width: 50px;
   }
   &__list {
     display: flex;
-    gap: 8px;
+    gap: 16px;
+      align-items: center;
+    padding: 8px;
+    background-color: white;
+    border-radius: 15px;
   }
   &__list-item {
-      display: flex;
-      align-items: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
   &__list-item-icon {
     width: 30px;

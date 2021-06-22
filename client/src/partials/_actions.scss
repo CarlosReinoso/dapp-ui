@@ -2,41 +2,44 @@
 @use './resets' as *;
 @use './breakpoints' as *;
 
+//buttons, inputs and label
+
+// button {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   height: rem(36);
+//   background: $Indigo;
+//   color: $White;
+//   padding: 0 rem(15);
+//   border-radius: rem(20);
+//   font-style: normal;
+//   font-weight: 600;
+//   font-size: rem(13);
+//   border: none;
+//   font-family: "Titillium Web", sans-serif;
+// }
+
 button {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: rem(36);
-  background: $Indigo;
-  color: $White;
-  padding: 0 rem(15);
-  border-radius: rem(20);
-  font-style: normal;
-  font-weight: 600;
-  font-size: rem(13);
+  border-radius: 15px;
+  padding: 6px 8px;
   border: none;
-  font-family: "Titillium Web", sans-serif;
+  box-shadow: 0px 4px 2px 1px rgba(0, 0, 0, 0.1);
 }
 
-.button-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: rem(36);
-
-  color: $White;
-  padding: 0 rem(15);
-  border-radius: rem(20);
-  font-style: normal;
-  font-weight: 600;
-  font-size: rem(13);
-  border: none;
+.button-swapModal {
+    background-color: white;
+    gap: 8px;
+    width: 90px;
 }
+
 
 button:hover {
-  background-color: $Graphite;
+  background-color: rgb(228, 228, 228);
 }
 
 .button-secondary {
@@ -82,6 +85,21 @@ button:hover {
   background-color: $Graphite;
 }
 
+// ---------------------------INPUTS-------------
+
+input {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  outline: none;
+}
+.input-swapModal {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid grey;
+  padding: 8px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
 .input-form,
 textarea,
 option,
@@ -101,10 +119,8 @@ select {
   }
 }
 
-
 textarea {
   resize: none;
   font-family: "Titillium Web", sans-serif;
   padding: rem(8) rem(16);
 }
-

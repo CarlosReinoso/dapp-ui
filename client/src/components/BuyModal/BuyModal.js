@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class  extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+const BuyModal = () => {
+    return (
+        <div>
+            
+        </div>
+    )
 }
+
+export default BuyModal

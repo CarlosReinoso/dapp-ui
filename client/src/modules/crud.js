@@ -4,21 +4,23 @@ import { useState, useEffect } from "react";
 const useFetch = (url, initialState) => {
   const [data, setData] = useState(initialState);
   const [error, setError] = useState("");
+  const [firstData, setFirstData] = useState(null)
 
   useEffect(() => {
-    async function getData() {
+     (async () => {
       try {
         const res = await axios.get(url);
-        const data = res.data;
+        const data = res.data.data.slice(0,100);
         setData(data);
+        setFirstData(data[0])
       } catch (err) {
         setError(err.message);
       }
-    }
-    getData();
+    })()
+   
   }, [url]);
 
-  return [data, error];
+  return [data, firstData];
 };
 
 export default useFetch;

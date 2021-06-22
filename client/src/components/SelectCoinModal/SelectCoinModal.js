@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from "react";
 import close from "../../assets/icons/close-24px.svg";
+import "./SelectCoinModal.scss";
 
 const SelectCoinModal = ({
   coinsList,
-  onSearch,
   selectBase,
   selectSwap,
   baseModal,
   swapModal,
-  toggleBaseModal,
-  toggleSwapModal,
+  toggle,
+  swapCoin,
+  baseCoin,
 }) => {
-  const handleClick = () => {
-    if (baseModal) {
-      toggleBaseModal();
-    } else if (swapModal) {
-      toggleSwapModal();
-    }
-  };
-
+  console.log("baseCoin", baseCoin);
+  console.log("swap", swapCoin);
   const [search, setSearch] = useState("");
   const [filtered, setFiltererd] = useState(coinsList);
+
+  const random5 = [...coinsList];
 
   useEffect(() => {
     setFiltererd(
@@ -31,29 +28,105 @@ const SelectCoinModal = ({
         );
       })
     );
-  }, [search, coinsList ]);
+  }, [search, coinsList]);
 
-  return (
-    <div className="modal">
-      <div className="modal__pop">
-        <span className="modal__pop-close">
-          <img onClick={handleClick} src={close} alt="" />
-        </span>
-        <h3>Select a Token</h3>
-        <input
-          onChange={e => setSearch(e.target.value)}
-          name="name"
-          type="text"
-          placeholder="Search for name"
-        />
-        <h3>Common Bases</h3>
-        <hr />
+  const handleClick = () => {
+    if (baseModal) {
+      toggle("one");
+    } else if (swapModal) {
+      toggle("two");
+    }
+  };
 
-        <div className="modal__coinsList">
-          <ul className="modal__coinsList-ul">
-            {filtered
-              .map((coin) => (
-                <li
+  const [disabled, setDisabled] = useState(false);
+
+  const onDisabled = (coinId) => {
+    if (!swapCoin) {
+      if (baseCoin.id === coinId) {
+        return "disabled";
+      } else {
+        return "";
+      }
+    } else {
+      if (baseCoin.id === coinId || swapCoin.id === coinId) {
+        return "disabled";
+      } else {
+        return ""
+      }
+    }
+  };
+
+  if (!baseCoin && !swapCoin) {
+    return <p>...Loading...</p>;
+  } else {
+    return (
+      <div className="modal">
+        <div className="modal__pop">
+          <div className="modal__pop-close-container">
+            <h4>Select a Token</h4>
+            <img
+              className="modal__pop-close"
+              onClick={handleClick}
+              src={close}
+              alt=""
+            />
+          </div>
+          <input
+            className="modal__input input-swapModal"
+            onChange={(e) => setSearch(e.target.value)}
+            name="name"
+            type="text"
+            placeholder="Search for name"
+          />
+          <h4>Common Bases</h4>
+          <ul className="modal__commonBases">
+            {random5
+              .slice(0, 5) //from top 100 to top 20
+              .sort(() => 0.5 - Math.random())
+              .slice(0, 5)
+              .map((coin) => {
+                return (
+                  <li
+                  disabled={
+                    !swapCoin
+                      ? baseCoin.id === coin.id
+                      : baseCoin.id === coin.id || swapCoin.id === coin.id
+                  }
+                    key={coin.id}
+                    
+                    className="modal__commonBases-item"
+                  >
+                    <button
+                      disabled={
+                        !swapCoin
+                          ? baseCoin.id === coin.id
+                          : baseCoin.id === coin.id || swapCoin.id === coin.id
+                      }
+                      className="modal__random-button button-swapModal"
+                      onClick={() => {
+                        if (baseModal) {
+                          selectBase(coin.id);
+                        } else if (swapModal) {
+                          selectSwap(coin.id);
+                        }
+                      }}
+                    >
+                      <img
+                        className="sp__token-image"
+                        id="one"
+                        src={coin.image}
+                        alt={coin.image}
+                      />
+                      <p id="one">{coin.symbol}</p>
+                    </button>
+                  </li>
+                );
+              })}
+          </ul>
+          <div className="modal__coinsList">
+            <ul className="modal__coinsList-ul">
+              {filtered.map((coin) => (
+                <button
                   key={coin.id}
                   onClick={() => {
                     if (baseModal) {
@@ -62,20 +135,31 @@ const SelectCoinModal = ({
                       selectSwap(coin.id);
                     }
                   }}
-                  className="modal__coinsList-item"
+                  disabled={
+                    !swapCoin
+                      ? baseCoin.id === coin.id
+                      : baseCoin.id === coin.id || swapCoin.id === coin.id
+                  }
+                  //"modal__coinsList-item"
+                  className={`modal__coinsList-item ${onDisabled(coin.id)}`}
                 >
-                  <img src={coin.image} alt="" />
+                  <img
+                    className="modal__coinsList-image"
+                    src={coin.image}
+                    alt=""
+                  />
                   <div>
-                    <h3>{coin.symbol}</h3>
-                    <h3>{coin.name}</h3>
+                    <p className="modal__coinsList-symbol">{coin.symbol}</p>
+                    <p className="modal__coinsList-name">{coin.name}</p>
                   </div>
-                </li>
+                </button>
               ))}
-          </ul>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default SelectCoinModal;

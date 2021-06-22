@@ -1,6 +1,12 @@
 @use './resets' as *;
 @use './breakpoints' as *;
 
+$GrayNurse: #f1f3f0;
+$Tasman: #d9dfd4;
+$TowerGray: #a8bbb6;
+$Killarney: #376040;
+$LunarGreen: #3c413b;
+
 //colours
 //Primary
 $Black: #13182c;
@@ -20,17 +26,17 @@ $Green: #158463;
 $Red: #c94515;
 
 @mixin main-component {
-  border-radius: remy(5);
-  margin: 0 remy(16) 0 remy(16);
+  border-radius: rem(5);
+  margin: 0 rem(16) 0 rem(16);
   position: relative;
-  bottom: remy(60);
+  bottom: rem(60);
   background-color: $White;
-  padding-top: remy(36) remy(16) remy(32) remy(32);
+  padding-top: rem(36) rem(16) rem(32) rem(32);
   @include tablet {
-    margin: 0 remy(32);
-    bottom: remy(98);
+    margin: 0 rem(32);
+    bottom: rem(98);
   }
   @include desktop {
-    margin: 0 remy(130);
+    margin: 0 rem(130);
   }
 }
