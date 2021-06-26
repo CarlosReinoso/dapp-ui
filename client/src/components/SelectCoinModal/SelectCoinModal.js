@@ -79,7 +79,7 @@ const SelectCoinModal = ({
           <h4>Common Bases</h4>
           <ul className="modal__commonBases">
             {random5
-              .slice(0, 5) //from top 100 to top 20
+              .slice(0, 20) //from top 100 to top 20
               .sort(() => 0.5 - Math.random())
               .slice(0, 5)
               .map((coin) => {

@@ -12,7 +12,7 @@ import NotFound from "./components/NotFound/NotFound";
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <main className="main">
         <Nav />
         <Switch>
           <Route exact path="/" component={MarketPage}/>
@@ -21,7 +21,7 @@ export default class App extends Component {
           <Route path="/buy" component={BuyModal}/>
           <Route component={NotFound}/>
         </Switch>
-      </div>
+      </main>
     );
   }
 }

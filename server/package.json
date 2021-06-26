@@ -9,7 +9,10 @@
     "migrate": "knex migrate:latest",
     "migrate:down": "knex migrate:down",
     "migrate:rollback": "knex migrate:rollback",
-    "seed": "knex seed:run"
+    "seed": "knex seed:run",
+    
+    "client": "cd ../client && npm start",
+    "dev": "concurrently -n 'server,client' -c 'green,blue' \"nodemon server.js\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -38,6 +41,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "concurrently": "^6.2.0",
     "nodemon": "^2.0.7"
   }
 }

@@ -2,10 +2,12 @@ import "./SwapPage.scss";
 import { FaArrowsAltV, FaChevronDown } from "react-icons/fa";
 import SelectCoinModal from "../SelectCoinModal/SelectCoinModal";
 
-import useFetch, { usePost } from "../../modules/crud";
+import useFetch from "../../modules/crud";
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import SuccessModal from "../SuccessModal/SuccessModal";
+// import FormErrors from "../FormErrors/FormErrors";
 
 const URL_Full =
   "https://api.lunarcrush.com/v2?data=meta&key=xyl8sb958pi25pq0efjjqn&type=full";
@@ -25,8 +27,24 @@ const SwapPage = () => {
 
   const [modal, setModal] = useState({ baseModal: false, swapModal: false });
 
-  // const [postTransaction, setTransaction] =useState(null)
   const [postTransaction, setTransaction] = useState([]);
+
+  const [successModal, setSuccessModal] = useState(false);
+
+  // const [formError, setFormError] = useState({ swapChoice: false });
+
+  // const [toSwitch, setSwitch] = useState(true);
+  // const onSwitch = () => {
+  //   setSwitch((toSwitch) => !toSwitch);
+  // };
+
+  const toggleSuccess = () => {
+    setSuccessModal((toToggle) => !toToggle);
+  };
+
+  useEffect(() => {
+    setSuccessModal(successModal);
+  }, [successModal]);
 
   useEffect(() => {
     setBaseCoin(firstCoinData);
@@ -41,8 +59,8 @@ const SwapPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!baseCoin || !swapCoin || !baseCalc || !swapCalc) {
-      return console.log("");
+    if ( !baseCoin || !swapCoin || !baseCalc || !swapCalc) {
+      return console.log("select fields");
     } else {
       const transaction = {
         base_coin: baseCoin.name,
@@ -52,9 +70,11 @@ const SwapPage = () => {
         base_calc: baseCalc,
         swap_calc: swapCalc,
       };
+      
       setTransaction(transaction);
-      e.target.reset()
+      setSuccessModal(successModal);
     }
+    e.target.reset();
   };
 
   const selectBase = (coinId) => {
@@ -303,11 +323,20 @@ const SwapPage = () => {
             type="submit"
             // onClick={() =>
             //   (window.location.href = "https://yoroi-wallet.com/#/")
-            // }
+            // // }
+            onClick={() =>
+             setSuccessModal(!successModal)
+            }
             className="sp__submit button-pay"
           >
-            Connect Wallet
+            Swap Coins
           </button>
+          {successModal && (
+            <SuccessModal
+              toggleSuccess={toggleSuccess}
+              successModal={successModal}
+            />
+          )}
         </form>
       </div>
     </section>

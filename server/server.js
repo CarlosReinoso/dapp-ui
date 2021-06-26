@@ -1,10 +1,8 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-// const axios = require("axios");
-// const { default: knex } = require("knex");
-// const knex = require("knex")(require("./knexfile")["development"])
 require("dotenv").config();
+// const knex = require("knex")(require("./knexfile")["development"])
 
 const Transaction = require("./models/transactions");
 
@@ -26,7 +24,7 @@ app.use(express.json());
 //   .catch(err => err.send('Error getting transactions'))
 // })
 
-app.get("/swap", (req, res) => {
+app.get("/swap", (_req, res) => {
   Transaction.fetchAll()
     .then((data) => {
       res.status(200).json(data);
@@ -37,7 +35,6 @@ app.get("/swap", (req, res) => {
 });
 
 app.post("/swap", (req, res) => {
-  console.log("req", req);
   new Transaction({
     base_coin: req.body.base_coin,
     swap_coin: req.body.swap_coin,
@@ -50,9 +47,6 @@ app.post("/swap", (req, res) => {
     .then((data) => {
       res.status(201).json(data);
     })
-    .catch((err) =>
-      err.status(400).json({ message: "Error getting transactions" })
-    );
 });
 
 app.listen(port, () => {

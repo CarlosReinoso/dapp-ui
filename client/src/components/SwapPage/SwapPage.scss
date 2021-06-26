@@ -1,11 +1,19 @@
 @use '../../partials/resets' as *;
 @use '../../partials/variables' as *;
+@use '../../partials/breakpoints' as *;
+
 
 .sp {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 16px 16px 0 16px;
+  align-self: center;
+  margin: 64px 16px 0 16px;
+  @include tablet {
+    margin: 64px 32px 0 32px;
+  }
+  @include desktop {
+    margin: 64px 48px 0 48px;
+  }
   &__card {
     z-index: 1;
     justify-content: center;
@@ -16,7 +24,13 @@
     transition: 0.3s;
     padding: 16px;
     width: 100%;
+    @include tablet {
+      width: 500px;
+    }
   }
+  // @include desktop {
+  //   margin: 16px 48px 0 48px;
+  // }
   &__container {
     display: flex;
     flex-direction: column;
@@ -84,10 +98,9 @@
 }
   &__submit {
     margin: auto;
+    margin-top: 16px;
     color: black;
     width: 100%;
-    // background-color: $TowerGrey;
-
     background-color: #a8bbb6;
   }
 }

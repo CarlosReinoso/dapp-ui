@@ -12,7 +12,7 @@ export const Nav = () => {
   };
   return (
     <nav className="nav">
-      <Link to="/">
+      <Link to="/swap">
         <img className="nav__logo" src={logo} alt="" />
       </Link>
       <ul className="nav__list">
