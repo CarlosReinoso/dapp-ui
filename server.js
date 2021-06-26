@@ -10,15 +10,32 @@ app.use(express.urlencoded({ extended: false }));
 
 const port = process.env.PORT || 5000;
 
-app.use(cors());
+//whitelist
+const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'https://mysterious-coast-49077.herokuapp.com']
+const corsOptions = {
+  origin: function (origin, callback) {
+    console.log("** Origin of request " + origin)
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      console.log("Origin acceptable")
+      callback(null, true)
+    } else {
+      console.log("Origin rejected")
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 //build
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
+
 
 
 //test
