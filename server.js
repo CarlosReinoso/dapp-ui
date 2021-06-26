@@ -13,6 +13,14 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+//build
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+
 //test
 // app.get('/swap', (req, res) => {
 //   knex
