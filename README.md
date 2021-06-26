@@ -5,6 +5,6 @@
 
 This will run both the Node server as well as the React App
 
-Enjoy 
+Enjoy! 
 
 : D
