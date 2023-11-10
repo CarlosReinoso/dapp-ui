@@ -1,47 +1,22 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "Dapp UI",
-  "main": "server.js",
+  "name": "dapp-ui",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "migrate": "knex migrate:latest",
-    "migrate:down": "knex migrate:down",
-    "migrate:rollback": "knex migrate:rollback",
-    "seed": "knex seed:run",
-    "client": "cd client && npm start",
-    "dev": "concurrently -n 'server,client' -c 'green,blue' \"nodemon server.js\" \"npm run client\"",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CarlosReinoso/dapp-ui.git"
-  },
-  "keywords": [
-    "dapp",
-    "blockchain",
-    "cardano"
-  ],
-  "author": "Carlos Reinoso",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/CarlosReinoso/dapp-ui/issues"
-  },
-  "homepage": "https://github.com/CarlosReinoso/dapp-ui#readme",
   "dependencies": {
-    "axios": "^0.21.1",
-    "bookshelf": "^1.2.0",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "env": "0.0.2",
-    "express": "^4.17.1",
-    "knex": "^0.95.6",
-    "mysql": "^2.18.1",
-    "uuid": "^8.3.2"
-  },
-  "devDependencies": {
-    "concurrently": "^6.2.0",
-    "nodemon": "^2.0.7"
+    "axios": "^1.6.1",
+    "lottie-web": "^5.12.2",
+    "next": "14.0.2",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^4.11.0",
+    "react-router": "^6.18.0",
+    "react-router-dom": "^6.18.0",
+    "sass": "^1.69.5"
   }
 }
