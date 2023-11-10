@@ -1,0 +1,13 @@
+@use './resets' as *;
+
+@mixin tablet {
+    @media screen and (min-width: rem(768)) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: rem(1280)) {
+        @content;
+    }
+}

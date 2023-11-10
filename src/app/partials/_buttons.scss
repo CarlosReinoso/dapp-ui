@@ -1,0 +1,110 @@
+@use './variables' as *;
+@use './resets' as *;
+@use './breakpoints' as *;
+
+button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: rem(36);
+  background: $Indigo;
+  color: $White;
+  padding: 0 rem(15);
+  border-radius: rem(20);
+  font-style: normal;
+  font-weight: 600;
+  font-size: rem(13);
+  border: none;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.button-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: rem(36);
+
+  color: $White;
+  padding: 0 rem(15);
+  border-radius: rem(20);
+  font-style: normal;
+  font-weight: 600;
+  font-size: rem(13);
+  border: none;
+}
+
+button:hover {
+  background-color: $Graphite;
+}
+
+.button-secondary {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 rem(15);
+  height: rem(36);
+  color: $White;
+  border-radius: rem(20);
+  font-style: normal;
+  font-weight: 600;
+  font-size: rem(13);
+  background: $White;
+  border: rem(1) solid $Cloud;
+  color: $Slate;
+}
+
+.button-secondary:hover {
+  color: $Indigo;
+  border: rem(1) solid $Indigo;
+}
+
+.button-delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 rem(15);
+  height: rem(36);
+  background: $Red;
+  color: $White;
+  border-radius: rem(20);
+  font-style: normal;
+  font-weight: 600;
+  font-size: rem(13);
+  border: none;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.button-delete:hover {
+  background-color: $Graphite;
+}
+
+.input-form,
+textarea,
+option,
+select {
+  height: rem(38);
+  width: 100%;
+  border-radius: rem(20);
+  border: rem(1) solid $Cloud;
+  padding: 0 rem(24);
+  background-color: $White;
+  margin-bottom: rem(16);
+  @include tablet {
+    margin-bottom: rem(24);
+  }
+  @include desktop {
+    margin-bottom: rem(32);
+  }
+}
+
+
+textarea {
+  resize: none;
+  font-family: "Titillium Web", sans-serif;
+  padding: rem(8) rem(16);
+}
+
